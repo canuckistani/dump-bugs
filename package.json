@@ -1,0 +1,17 @@
+{
+  "title": "Dump Bugs",
+  "name": "dump-bugs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Jeff Griffiths",
+  "engines": {
+    "firefox": ">=27.0 <=30.0",
+    "fennec": ">=27.0 <=30.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.8.6",
+    "gulp-exec": "^2.0.1"
+  }
+}
