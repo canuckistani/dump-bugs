@@ -18,31 +18,47 @@ function scanForBugs(callback) {
   callback(bugs);
 }
 
-exports.main = function(options) {
+function openBugs() {
   _.each(_.range(10), function() {
     tabs.open('https://bugzilla.mozilla.org/show_bug.cgi?id=859138');
   });
+}
 
-  var action_button = ActionButton({
-    id: "my-button",
-    label: "Action Button!",
-    icon: "./icon.png",
-    onClick: function(state) {
-      scanForBugs(function(bugs) {
-        if (bugs.length <= 0) {
-          text = "Zarro Boogs found";
-        }
-        else {
-          text = "Found "+bugs.length+" bugs";
-        }
-        notify({
-          title: "Bug Scan",
-          text: text
-        });
+var button1 = ActionButton({
+  id: "my-button1",
+  label: "Open Bugs",
+  icon: "./icon.png",
+  onClick: function(state) {
+    openBugs();
+  }
+});
+
+var button2 = ActionButton({
+  id: "my-button2",
+  label: "DUMP!",
+  icon: "./icon.png",
+  onClick: function(state) {
+    scanForBugs(function(bugs) {
+      if (bugs.length <= 0) {
+        text = "Zarro Boogs found";
+      }
+      else {
+        text = "Found "+bugs.length+" bugs";
+      }
+      notify({
+        title: "Bug Scan",
+        text: text
       });
-    }
-  });
-};
+    });
+  }
+});
+
+const INIT_DELAY = 210;
+
+exports.main = function(options) {
+  console.log("in main");
+  setTimeout(openBugs, INIT_DELAY);
+}
 
 exports.onUnload = function(reason) {
   console.log("unloading: ", reason);

@@ -11,8 +11,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "gulp": "^3.8.6",
-    "gulp-exec": "^2.0.1",
     "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-exec": "^2.0.1"
   }
 }
